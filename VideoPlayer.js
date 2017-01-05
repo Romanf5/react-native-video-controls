@@ -13,6 +13,7 @@ import {
     Text
 } from 'react-native';
 import _ from 'lodash';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class VideoPlayer extends Component {
 
@@ -786,8 +787,8 @@ export default class VideoPlayer extends Component {
                     <View style={ styles.controls.topControlGroup }>
                         { this.renderBack() }
                         <View style={ styles.controls.pullRight }>
-                            { this.renderVolume() }
-                            { this.renderFullscreen() }
+                            {/* { this.renderVolume() } */}
+                            {/* { this.renderFullscreen() } */}
                         </View>
                     </View>
                 </Image>
@@ -800,10 +801,7 @@ export default class VideoPlayer extends Component {
      */
     renderBack() {
         return this.renderControl(
-            <Image
-                source={ require( './assets/img/back.png' ) }
-                style={ styles.controls.back }
-            />,
+            <Icon name="caret-left" size={35} color="#fff" />,
             this.methods.onBack,
             styles.controls.back
         );
@@ -1200,14 +1198,16 @@ const styles = {
             alignSelf: 'stretch',
             justifyContent: 'center',
             backgroundColor: '#333',
-            height: 4,
+            height: 7,
             marginLeft: 28,
             marginRight: 28,
+            borderRadius: 3,
         },
         fill: {
             alignSelf: 'flex-start',
-            height: 2,
+            height: 7,
             width: 1,
+            borderRadius: 3,
         },
         handle: {
             position: 'absolute',
@@ -1218,8 +1218,8 @@ const styles = {
         },
         circle: {
             borderRadius: 20,
-            height: 12,
-            width: 12,
+            height: 16,
+            width: 16,
         },
     }),
     volume: StyleSheet.create({
